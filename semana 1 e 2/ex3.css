@@ -1,0 +1,24 @@
+h1{
+    color: brown;
+    font-family: verdana;
+    font-size: 20px;
+    text-align: center;
+}
+
+body{
+    background-color: yellow;
+}
+
+p{
+    font-size: 20px;
+}
+
+.image{
+    width: 80px;
+    border: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+}

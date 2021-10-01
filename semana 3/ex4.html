@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horário</title>
+</head>
+<body onload="get_hour()">
+   
+    <p id="hour"></p>
+    <script>
+        const hhmm = document.querySelector("#hour");
+        function get_hour(){
+            //exercício 5 utiliza setInterval. Exercicio 4 sem setInterval
+            setInterval(function(){
+            const data_hoje = new Date();
+            const hora = data_hoje.getHours();           
+            const min = data_hoje.getMinutes(); 
+
+            hhmm.innerHTML = `${hora}:${min}`
+            },1000);
+ 
+        }
+    </script>
+</body>
+</html>

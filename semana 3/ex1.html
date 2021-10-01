@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Idade</title>
+</head>
+<body>
+    <h1>Calculadora de Idade</h1>
+
+    <form action="ex1.html" >
+        <label for="data_nascimento">Data de Nascimento</label><br />
+        <input type="date" id="data_nascimento" name="data_nascimento"><br />
+        <button  type="submit" onclick="calcula_idade()">Calcular</button>
+    </form>
+
+    
+    <script>
+        //coleta dados idade inseridos pelo usuário
+        function calcula_idade(){
+            event.preventDefault()
+            //separa a data em 3 variáveis: ano, mês e dia
+            const data_user = document.getElementById("data_nascimento").value;
+            const ano_user = parseInt(data_user.substr(0,4));
+            const mes_user = parseInt(data_user.substr(5,2));
+            const dia_user = parseInt(data_user.substr(8,2));
+            
+            //coleta a data de hoje e a separa em 3: ano, mês e dia
+            const data_hoje = new Date();
+            const dia_hoje = data_hoje.getDate();           
+            const mes_hoje = data_hoje.getMonth()+1;          
+            const ano_hoje = data_hoje.getFullYear();       
+            
+            //declaração da variável de idade
+            let idade = Number()
+            
+            //mês de aniversário já passou?
+            if(mes_user<mes_hoje){
+                idade=ano_hoje-ano_user;   
+            }
+            //estamos no mês de aniversário E o dia de aniversário já passou?
+            else if(mes_user == mes_hoje && dia_user<=dia_hoje){
+                idade=ano_hoje-ano_user;
+            }
+            //estamos no mês de aniversário E o dia de aniversário ainda não passou?
+            else if(mes_user == mes_hoje && dia_user>dia_hoje){
+                idade=ano_hoje-ano_user-1;
+            } 
+            //mês de aniversário ainda não passou
+            else if(mes_user > mes_hoje){
+                idade=ano_hoje-ano_user-1;
+            }
+            
+            
+            const novaDiv = document.createElement("div")
+            document.body.appendChild(novaDiv).textContent = `Sua idade é: ${idade}`
+
+        }
+    </script>
+</body>
+</html>

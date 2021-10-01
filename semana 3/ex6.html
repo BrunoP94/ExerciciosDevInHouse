@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estação</title>
+</head>
+<body id="exercicio_est" onload="get_estacao()">
+   
+    <p id="Est"></p>
+    <script>
+        const estacao_hoje = document.querySelector("#Est");
+        function get_estacao(){
+            
+            const data_hoje = new Date();
+            const mes = data_hoje.getMonth()+1;           
+            const dia = data_hoje.getDay();
+
+            
+            if(mes == 4 ||mes == 5){
+                resultado_estacao = "Outono"
+            } else if(mes == 7 ||mes == 8){
+                resultado_estacao = "Inverno"
+            } else if(mes == 10 ||mes == 11){
+                resultado_estacao = "Primavera"
+            } else if(mes == 1 ||mes == 2){
+                resultado_estacao = "Verão"
+            } else if(mes == 3 && dia <= 21){
+                resultado_estacao = "Verão"
+            } else if(mes == 3 && dia >= 22){
+                resultado_estacao = "Outono"
+            } else if(mes == 6 && dia <= 21){
+                resultado_estacao = "Outono"
+            } else if(mes == 6 && dia >= 22){
+                resultado_estacao = "Inverno"
+            } else if(mes == 9 && dia <= 21){
+                resultado_estacao = "Inverno"
+            } else if(mes == 9 && dia >= 22){
+                resultado_estacao = "Primavera"
+            } else if(mes == 12 && dia <= 21){
+                resultado_estacao = "Primavera"
+            } else if(mes == 12 && dia >= 22){
+                resultado_estacao = "Verão"
+            }
+
+
+            estacao_hoje.innerHTML = resultado_estacao
+
+            let imagem_estacao = document.createElement("img");
+            if(resultado_estacao == "Verão"){
+            imagem_estacao.src= "https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg"}
+            else if (resultado_estacao == "Inverno"){
+            imagem_estacao.src= "https://share.america.gov/wp-content/uploads/2015/12/1796454_926804410706574_7365482241497777350_n.jpg"}
+            else if (resultado_estacao == "Outono"){
+            imagem_estacao.src= "https://www.lopes.com.br/blog/wp-content/uploads/2017/03/capa.jpg"}
+            else if (resultado_estacao == "Primavera"){
+            imagem_estacao.src= "https://segredosdomundo.r7.com/wp-content/uploads/2019/09/primavera-a-estacao-da-fertilidade-das-chuvas-e-das-cores-5.jpg"}   
+
+
+            document.getElementById("exercicio_est").appendChild(imagem_estacao)
+        }
+    </script>
+</body>
+</html>
